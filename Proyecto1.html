@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 1</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+</head>
+<body>
+    <a-scene physics="gravity:-9.8">
+        <!--Creamos biblioteca-->
+        <a-assets>
+            <img id="noche" src="assets/img/vignaioli_night.jpg">
+            <a-asset-item id="apartamento" src="assets/models/PrimerAvance.obj"></a-asset-item>
+            <a-asset-item id="mtlApartamento" src=assets/models/PrimerAvance.mtl></a-asset-item>
+        </a-assets>
+
+        <a-sky src="#noche"></a-sky>
+
+        <a-entity id="rig" movement-controls kinematic-body>
+            <a-entity camera position="0 1.8 0" look-controls="pointerLockEnabled:true"></a-entity>
+        </a-entity>
+
+        <a-plane scale="50 50 1" rotation="-90 0 0" visible="false" color="green" static-body></a-plane>
+        <a-plane scale="1.19 4.97 1" position="-4.337 1.638 0.005" rotation="-53 0 0" visible="false" static-body></a-plane>
+        <a-plane scale="7.847 6.337 0" position="-1.178 3.118 -5.301" rotation="-90 0 0" visible="false" static-body></a-plane>
+        <!--importar el modelo-->
+        <a-entity obj-model="obj: #apartamento; mtl: #mtlApartamento" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
+    </a-scene>
+</body>
+</html>
