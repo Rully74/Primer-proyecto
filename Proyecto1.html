@@ -21,6 +21,7 @@
             <!--Archivos audio y video-->
             <video id="video" autoplay src="assets/vid/video.mp4"></video>
 
+          
             <!--Archivos modelados y texturas-->
             <!--Apartamento base-->
             <a-asset-item id="base" src="assets/models/apartamento/base/base.obj"></a-asset-item>
@@ -36,8 +37,27 @@
             <a-asset-item id="mtlEscaleras" src=assets/models/apartamento/escaleras/escaleras.mtl></a-asset-item>
             <a-asset-item id="puerta" src="assets/models/apartamento/puerta/10057_wooden_door_v3_iterations-2.obj"></a-asset-item>
             <a-asset-item id="mtlPuerta" src=assets/models/apartamento/puerta/10057_wooden_door_v3_iterations-2.mtl></a-asset-item>
+
             <a-asset-item id="lavaPlatos" src="assets/models/muebles/lavaPlatos/lavaPlatos.obj"></a-asset-item>
             <a-asset-item id="mtlLavaPlatos" src=assets/models/muebles/lavaPlatos/lavaPlatos.mtl></a-asset-item>
+
+            <a-asset-item id="vasija" src="assets/models/apartamento/vasija/Vase01.obj"></a-asset-item>
+            <a-asset-item id="mtlvasija" src="assets/models/apartamento/vasija/Vase01.mtl"></a-asset-item>
+            <a-asset-item id="bicicleta" src="assets/models/apartamento/bicicleta/Bike.obj"></a-asset-item>
+            <a-asset-item id="mtlbicicleta" src="assets/models/apartamento/bicicleta/Bike.mtl"></a-asset-item>
+            <a-asset-item id="mesas" src="assets/models/apartamento/mesas/mesas.obj"></a-asset-item>
+            <a-asset-item id="mtlesas" src="assets/models/apartamento/mesas/mesas.mtl"></a-asset-item>
+            <a-asset-item id="adorno" src="assets\models\muebles\mesaTv\adorno\adorno.obj"></a-asset-item>
+            <a-asset-item id="mtladorno" src="assets\models\muebles\mesaTv\adorno\adorno.mtl"></a-asset-item>
+             <!--Cama-->
+            <a-asset-item id="cama" src="assets/models/muebles/cama/Queen_Size_Bed_with_Black_Sheets_White_v1.obj"></a-asset-item>
+            <a-asset-item id="mtlCama" src="assets/models/muebles/cama/Queen_Size_Bed_with_Black_Sheets_White_v1.mtl"></a-asset-item>
+            <!--Baño-->
+            <a-asset-item id="toiled" src="assets/models/muebles/baño/hsdc00.obj"></a-asset-item>
+            <a-asset-item id="mtlToiled" src="assets/models/muebles/baño/hsdc00.mtl"></a-asset-item>
+            <a-asset-item id="bañera" src="assets/models/muebles/baño/squaro_edge.obj"></a-asset-item>
+            <a-asset-item id="lavado" src="assets/models/muebles/baño/washbasin-01.obj"></a-asset-item>
+
             <!--Tv-->
             <a-asset-item id="mesaTv" src="assets/models/muebles/mesaTv/Untitled.gltf"></a-asset-item>
             <a-asset-item id="Tv" src="assets/models/muebles/mesaTv/Tv.obj"></a-asset-item>
@@ -49,11 +69,9 @@
             <a-asset-item id="mtlMesa" src="assets/models/muebles/mesa/StylishDesk.mtl"></a-asset-item>
             
 
-        </a-assets>
-
         <!--Sky-->
         <a-sky src="#noche" position="0 -200 0" rotation="0 140 0"></a-sky>
-        
+
         <!--Configuracion de camara-->
         <a-entity id="rig" movement-controls kinematic-body="radius:0.5">
             <a-entity camera position="0 1.8 0" look-controls="pointerLockEnabled:true"></a-entity>
@@ -78,15 +96,36 @@
         <a-entity gltf-model="#cristalParedes" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
         <a-entity obj-model="obj: #escaleras; mtl: #mtlEscaleras" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
         <a-entity obj-model="obj: #puerta; mtl: #mtlPuerta" position="-5.050 0.496 -7.855" scale="0.01 0.01 0.01" rotation="-90 90 0"></a-entity>
+
         <a-entity obj-model="obj: #lavaPlatos; mtl: #mtlLavaPlatos" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
+
+
+        <a-entity obj-model="obj: #vasija; mtl: #mtlvasija" position="-2.1 1.035 1" scale="0.01 0.01 0.01" rotation="0 0 0"></a-entity>
+        <a-entity obj-model="obj: #vasija; mtl: #mtlvasija" position="-2.3 1.035 1" scale="0.02 0.02 0.02" rotation="0 0 0"></a-entity>
+        <a-entity obj-model="obj: #vasija; mtl: #mtlvasija" position="-2.6 1.035 1" scale="0.03 0.03 0.03" rotation="0 0 0"></a-entity>
+        <a-entity obj-model="obj: #adorno;" position="-2.3 1.035 0.3" scale="0.002 0.002 0.002" rotation="0 0 0"></a-entity>
+        <a-entity obj-model="obj: #bicicleta; mtl: #mtlbicicleta" position="1.5 0.5 -1.5" scale="0.01 0.01 0.01" rotation="0 270 0"></a-entity>
+        <a-entity obj-model="obj: #mesas; mtl: #mtlmesas" position="1.5 0.5 -1.5" scale="0.01 0.01 0.01" rotation="0 270 0"></a-entity>
+        
+
         <!--Tv-->
         <a-entity gltf-model="#mesaTv" position="0 0 0" scale="0.01 0.01 0.01" static-body></a-entity>
         <a-entity obj-model="obj: #Tv; mtl: #mtlTv" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
         <a-entity obj-model="obj: #pantallaTv" material="src: #video" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
+
         <!--Sala-->
         <a-entity gltf-model="#sofa" rotation="0 -90 0" position="0.921 0.455 2.292" scale="0.0095 0.0095 0.0095" ></a-entity>
         <a-entity obj-model="obj: #mesa; mtl: #mtlMesa" position="-0.480 0.304 1.725" scale="0.541 0.419 0.185" rotation="0 90 0" ></a-entity>
         
+
+        <!--Cama-->
+        <a-entity obj-model="obj: #cama; mtl: #mtlCama" position="0.955 3.792 -7" scale="0.013 0.013 0.013" rotation="-90 0 0" static-body></a-entity>
+        <!--Baño-->
+        <a-entity obj-model="obj: #toiled; mtl: #mtlToiled" position="0.305 0.492 -6.654" scale="0.03 0.03 0.03" rotation="0 90 0" static-body></a-entity>
+        <a-entity obj-model="obj: #bañera" position="1.865 0.473 -7.404" scale="0.011 0.011 0.012" rotation="0 90 0" static-body></a-entity>
+        <a-entity obj-model="obj: #lavado" position="-0.635 1 -6.363" scale="0.02 0.02 0.02" rotation="0 -180 0" static-body></a-entity>
+
+
         <!--Luces-->
         <a-entity light="type: point; color: white; intensity:0.8; distance: 0; decay: 0" position="-1.403 2.782 1.309"></a-entity>
         <a-entity light="type: point; color: white; intensity:0.7; distance: 0; decay: 0" position="-0.347 7.771 -5.263"></a-entity>
