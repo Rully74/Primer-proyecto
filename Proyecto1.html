@@ -15,22 +15,69 @@
     <a-scene physics="gravity:-9.8">
         <!--Creamos biblioteca-->
         <a-assets>
-            <img id="noche" src="assets/img/vignaioli_night.jpg">
-            <a-asset-item id="apartamento" src="assets/models/PrimerAvance.obj"></a-asset-item>
-            <a-asset-item id="mtlApartamento" src=assets/models/PrimerAvance.mtl></a-asset-item>
+            <!--Archivo Sky-->
+            <img id="noche" src="assets/img/ciudad3.jpeg">
+
+            <!--Archivos audio y video-->
+            <video id="video" autoplay src="assets/vid/video.mp4"></video>
+
+            <!--Archivos modelados y texturas-->
+            <!--Apartamento base-->
+            <a-asset-item id="base" src="assets/models/apartamento/base/base.obj"></a-asset-item>
+            <a-asset-item id="mtlBase" src="assets/models/apartamento/base/base.mtl"></a-asset-item>
+            <a-asset-item id="baseAdentro" src="assets/models/apartamento/base/baseAdentro.obj"></a-asset-item>
+            <a-asset-item id="mtlBaseAdentro" src="assets/models/apartamento/base/baseAdentro.mtl"></a-asset-item>
+            <a-asset-item id="piso" src=assets/models/apartamento/piso/Untitled.gltf></a-asset-item>
+            <a-asset-item id="ventanas" src=assets/models/apartamento/ventanas/ventanas.obj></a-asset-item>
+            <a-asset-item id="mtlVentanas" src=assets/models/apartamento/ventanas/ventanas.mtl></a-asset-item>
+            <a-asset-item id="cristalVentanas" src=assets/models/apartamento/cristalVentana/Untitled.gltf></a-asset-item>
+            <a-asset-item id="cristalParedes" src=assets/models/apartamento/cristalAdentro/Untitled.gltf></a-asset-item>
+            <a-asset-item id="escaleras" src=assets/models/apartamento/escaleras/escaleras.obj></a-asset-item>
+            <a-asset-item id="mtlEscaleras" src=assets/models/apartamento/escaleras/escaleras.mtl></a-asset-item>
+            <a-asset-item id="puerta" src="assets/models/apartamento/puerta/10057_wooden_door_v3_iterations-2.obj"></a-asset-item>
+            <a-asset-item id="mtlPuerta" src=assets/models/apartamento/puerta/10057_wooden_door_v3_iterations-2.mtl></a-asset-item>
+            <!--Tv-->
+            <a-asset-item id="mesaTv" src="assets/models/muebles/mesaTv/Untitled.gltf"></a-asset-item>
+            <a-asset-item id="Tv" src="assets/models/muebles/mesaTv/Tv.obj"></a-asset-item>
+            <a-asset-item id="mtlTv" src="assets/models/muebles/mesaTv/Tv.mtl"></a-asset-item>
+            <a-asset-item id="pantallaTv" src="assets/models/muebles/mesaTv/pantallaTv.obj"></a-asset-item>
+            
+            
         </a-assets>
 
-        <a-sky src="#noche"></a-sky>
-
-        <a-entity id="rig" movement-controls kinematic-body>
+        <!--Sky-->
+        <a-sky src="#noche" position="0 -200 0" rotation="0 140 0"></a-sky>
+        
+        <!--Configuracion de camara-->
+        <a-entity id="rig" movement-controls kinematic-body="radius:0.5">
             <a-entity camera position="0 1.8 0" look-controls="pointerLockEnabled:true"></a-entity>
         </a-entity>
 
+        <!--Planos para coliciones-->
         <a-plane scale="50 50 1" rotation="-90 0 0" visible="false" color="green" static-body></a-plane>
         <a-plane scale="1.19 4.97 1" position="-4.337 1.638 0.005" rotation="-53 0 0" visible="false" static-body></a-plane>
         <a-plane scale="7.847 6.337 0" position="-1.178 3.118 -5.301" rotation="-90 0 0" visible="false" static-body></a-plane>
-        <!--importar el modelo-->
-        <a-entity obj-model="obj: #apartamento; mtl: #mtlApartamento" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
+
+        <!--importaciones de modelos-->
+        <!--Base Apartamento-->
+        <a-entity obj-model="obj: #base; mtl: #mtlBase" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity obj-model="obj: #baseAdentro; mtl: #mtlBaseAdentro" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity gltf-model="#piso" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity obj-model="obj: #ventanas; mtl: #mtlVentanas" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity gltf-model="#cristalVentanas" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity gltf-model="#cristalParedes" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
+        <a-entity obj-model="obj: #escaleras; mtl: #mtlEscaleras" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity obj-model="obj: #puerta; mtl: #mtlPuerta" position="-5.050 0.496 -7.855" scale="0.01 0.01 0.01" rotation="-90 90 0"></a-entity>
+        <!--Tv-->
+        <a-entity gltf-model="#mesaTv" position="0 0 0" scale="0.01 0.01 0.01" static-body></a-entity>
+        <a-entity obj-model="obj: #Tv; mtl: #mtlTv" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+        <a-entity obj-model="obj: #pantallaTv" material="src: #video" position="0 0 0" scale="0.01 0.01 0.01" static-body="shape:mesh"></a-entity>
+
+        <!--Luces-->
+        <a-entity light="type: point; color: white; intensity:0.8; distance: 0; decay: 0" position="-1.403 2.782 1.309"></a-entity>
+        <a-entity light="type: point; color: white; intensity:0.7; distance: 0; decay: 0" position="-0.347 7.771 -5.263"></a-entity>
+        <a-entity light="type: point; color: white; intensity:0.5; distance: 0; decay: 0" position="-0.026 -0.778 -9.283"></a-entity>
+        <a-entity light="type: point; color: white; intensity:0.3; distance: 0; decay: 0" position="-9.298 -0.627 -9.283"></a-entity>   
     </a-scene>
 </body>
 </html>
